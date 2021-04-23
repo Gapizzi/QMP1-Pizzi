@@ -1,0 +1,82 @@
+
+--Prenda
+
+public class Prenda{
+	private TipoDePrenda tipoDePrenda;
+	private Material material;
+	private Color colorPrincipal;
+	private Categoria categoria
+	
+	private Color colorSecundario;
+
+	public Prenda(TipoDePrenda tipoDePrenda, Material material, Color colorPrincipal){
+		this.validarPrenda();
+		this.tipoDePrenda=tipoDePrenda;
+		this.material=material;
+		this.colorPrincipla=colorPrincipal;
+		this.categoria=tipoDePrenda.categoria();
+	}
+
+	private void validarPrenda(TipoDePrenda tipoDePrenda, Material material, Color colorPrincipal){
+		if (tipoDePrenda == null){
+			throw new FaltaTipoDePrendaExcepcion();
+		}
+		if (material == null){
+			throw new FaltaMaterialExcepcion();
+		}
+		if (color == null){
+			throw new FaltaColorExcepcion();
+		}
+	}
+
+	public void setColorSecundario(Color colorSecundario){
+		this.colorSecundario=colorSecundario;
+	}
+}
+
+--TipoDePrenda
+
+public Class TipoDePrenda{
+	private Categoria categoria;
+
+	public TipoDePrenda(Categoria categoria){
+		this.categoria=categoria;
+	}
+
+	public Categoria getCategoria(){
+		return categoria;
+	}
+}
+
+--Categoria
+
+public enum Categoria{
+	PARTE_SUPERIOR,
+	CALZADO,
+	PARTE_INFERIOR,
+	ACCESORIO
+}
+
+--Material
+
+public enum Material{
+	ALGODON,
+	POLIESTER,
+	LANA
+}
+
+--Color
+
+public enum Color{
+	NEGRO,
+	GRIS,
+	AZUL,
+	ROJO,
+	VERDE,
+	AMARILLO,
+	NARANJA,
+	CELESTE 
+	MARRON,
+	VIOLETA,
+	BLANCO
+}
